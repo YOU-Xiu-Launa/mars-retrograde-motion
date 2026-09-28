@@ -1,19 +1,12 @@
-# The phenomenon
-
-<!-- This is the SD5913 assignment 2 template. Everything in this file is yours to
-replace, and the check counts words: comments like this one are not words, so
-delete each one as you write. Start with the heading: name the phenomenon.
-
-Then, in this order, at least 150 words in total.
-
-New to folders, paths, or the files here whose names start with a dot? Read
-https://github.com/sd5913/pfad/blob/2026/reference/files.md first. Ten minutes. -->
+# Mars Retrograde Motion
 
 ![what the picture is](out/plot.png)
 
 ## The phenomenon
 
-<!-- What goes up and down, and why you looked at it. -->
+Mars retrograde motion is an apparent change in the direction of Mars across the night sky. Usually, Mars appears to move eastward relative to the background stars. However, during a certain period, it appears to move backwards before returning to its usual direction. This does not mean that Mars actually reverses its orbit. It is an effect caused by the different orbital speeds and distances of Earth and Mars as they travel around the Sun.
+
+I chose this phenomenon because it shows how the motion of a planet can look different from Earth's point of view. I wanted to use real astronomical data to turn this movement into a visual image and make the changing path easier to see.
 
 ## The source
 
