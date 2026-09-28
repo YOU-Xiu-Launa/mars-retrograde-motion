@@ -10,18 +10,18 @@ I chose this phenomenon because it shows how the motion of a planet can look dif
 
 ## The source
 
-<!-- A link to the page or endpoint the file came from, and one line on what is in
-the file: how many rows, what a row means, what the units are. -->
+The data comes from NASA/JPL's Horizons System: https://ssd.jpl.nasa.gov/horizons/app.html#/. I selected Mars (499), observed from the geocentric position, from 1 September 2024 to 1 March 2025, with a time step of one day.
+
+The original file, horizons_results.txt, contains 182 daily observations. Each data row represents Mars's apparent position at a specific date and time. The file records right ascension (RA) in hours, minutes and seconds, and declination (Dec) in degrees, arcminutes and arcseconds. The original data is stored in the data/ folder and is used locally by the plotting script.
 
 ## What the picture shows
 
-<!-- Two or three sentences. Including what it hides: every transformation throws
-something away, and naming what yours threw away is the easiest way to sound like
-you know what you did. -->
+The visualisation uses the recorded positions of Mars to show how its apparent position changes over time. The observations are plotted in date order to reveal the path traced across the sky.
+
+To make the data suitable for plotting, the coordinate values are converted from their original time and angle formats into numerical values. The image focuses on the two-dimensional apparent path seen from Earth. It does not show the actual three-dimensional orbits of Earth and Mars, their changing distance, or the full background star field. This means the picture highlights the apparent movement rather than the complete astronomical situation.
 
 ## Run it
 
 ```
-uv run fetch.py
 uv run plot.py
 ```
