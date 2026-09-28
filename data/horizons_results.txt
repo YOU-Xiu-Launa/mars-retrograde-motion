@@ -1,0 +1,287 @@
+
+
+*******************************************************************************
+Ephemeris / WWW_USER Sat Sep 26 23:54:08 2026 Pasadena, USA      / Horizons    
+*******************************************************************************
+Target body name: Mars (499)                      {source: mar099}
+Center body name: Earth (399)                     {source: DE441}
+Center-site name: GEOCENTRIC
+*******************************************************************************
+Start time      : A.D. 2024-Sep-01 00:00:00.0000 UT      
+Stop  time      : A.D. 2025-Mar-01 00:00:00.0000 UT      
+Step-size       : 1440 minutes
+*******************************************************************************
+Target pole/equ : IAU_MARS                        {West-longitude positive}
+Target radii    : 3396.19, 3396.19, 3376.2 km     {Equator_a, b, pole_c}       
+Center geodetic : 0.0, 0.0, -6378.137             {E-lon(deg),Lat(deg),Alt(km)}
+Center cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}
+Center pole/equ : ITRF93                          {East-longitude positive}
+Center radii    : 6378.137, 6378.137, 6356.752 km {Equator_a, b, pole_c}       
+Target primary  : Sun
+Vis. interferer : MOON (R_eq= 1737.400) km        {source: DE441}
+Rel. light bend : Sun                             {source: DE441}
+Rel. lght bnd GM: 1.3271E+11 km^3/s^2                                          
+Atmos refraction: NO (AIRLESS)
+RA format       : HMS
+Time format     : CAL 
+Calendar mode   : Mixed Julian/Gregorian
+EOP file        : eop.260925.p261222                                           
+EOP coverage    : DATA-BASED 1962-JAN-20 TO 2026-SEP-25. PREDICTS-> 2026-DEC-21
+Units conversion: 1 au= 149597870.700 km, c= 299792.458 km/s, 1 day= 86400.0 s 
+Table cut-offs 1: Elevation (-90.0deg=NO ),Airmass (>38.000=NO), Daylight (NO )
+Table cut-offs 2: Solar elongation (  0.0,180.0=NO ),Local Hour Angle( 0.0=NO )
+Table cut-offs 3: RA/DEC angular rate (     0.0=NO )                           
+Table format    : Comma Separated Values (spreadsheet)
+*******************************************************************************
+ Date__(UT)__HR:MN, , , R.A.__(a-app), DEC_(a-app),
+***************************************************
+$$SOE
+ 2024-Sep-01 00:00, , ,   05 49 50.82, +23 19 25.9,
+ 2024-Sep-02 00:00, , ,   05 52 30.97, +23 21 05.3,
+ 2024-Sep-03 00:00, , ,   05 55 10.53, +23 22 35.0,
+ 2024-Sep-04 00:00, , ,   05 57 49.50, +23 23 55.0,
+ 2024-Sep-05 00:00, , ,   06 00 27.86, +23 25 05.6,
+ 2024-Sep-06 00:00, , ,   06 03 05.59, +23 26 06.8,
+ 2024-Sep-07 00:00, , ,   06 05 42.68, +23 26 58.7,
+ 2024-Sep-08 00:00, , ,   06 08 19.11, +23 27 41.5,
+ 2024-Sep-09 00:00, , ,   06 10 54.88, +23 28 15.4,
+ 2024-Sep-10 00:00, , ,   06 13 29.96, +23 28 40.5,
+ 2024-Sep-11 00:00, , ,   06 16 04.35, +23 28 57.0,
+ 2024-Sep-12 00:00, , ,   06 18 38.03, +23 29 04.9,
+ 2024-Sep-13 00:00, , ,   06 21 10.99, +23 29 04.5,
+ 2024-Sep-14 00:00, , ,   06 23 43.21, +23 28 56.0,
+ 2024-Sep-15 00:00, , ,   06 26 14.68, +23 28 39.4,
+ 2024-Sep-16 00:00, , ,   06 28 45.38, +23 28 15.0,
+ 2024-Sep-17 00:00, , ,   06 31 15.31, +23 27 42.8,
+ 2024-Sep-18 00:00, , ,   06 33 44.44, +23 27 02.9,
+ 2024-Sep-19 00:00, , ,   06 36 12.78, +23 26 15.7,
+ 2024-Sep-20 00:00, , ,   06 38 40.30, +23 25 21.1,
+ 2024-Sep-21 00:00, , ,   06 41 06.99, +23 24 19.5,
+ 2024-Sep-22 00:00, , ,   06 43 32.84, +23 23 10.9,
+ 2024-Sep-23 00:00, , ,   06 45 57.81, +23 21 55.6,
+ 2024-Sep-24 00:00, , ,   06 48 21.90, +23 20 33.7,
+ 2024-Sep-25 00:00, , ,   06 50 45.08, +23 19 05.5,
+ 2024-Sep-26 00:00, , ,   06 53 07.32, +23 17 31.2,
+ 2024-Sep-27 00:00, , ,   06 55 28.60, +23 15 51.0,
+ 2024-Sep-28 00:00, , ,   06 57 48.91, +23 14 05.0,
+ 2024-Sep-29 00:00, , ,   07 00 08.21, +23 12 13.5,
+ 2024-Sep-30 00:00, , ,   07 02 26.49, +23 10 16.6,
+ 2024-Oct-01 00:00, , ,   07 04 43.74, +23 08 14.7,
+ 2024-Oct-02 00:00, , ,   07 06 59.92, +23 06 07.9,
+ 2024-Oct-03 00:00, , ,   07 09 15.03, +23 03 56.4,
+ 2024-Oct-04 00:00, , ,   07 11 29.04, +23 01 40.4,
+ 2024-Oct-05 00:00, , ,   07 13 41.93, +22 59 20.3,
+ 2024-Oct-06 00:00, , ,   07 15 53.70, +22 56 56.2,
+ 2024-Oct-07 00:00, , ,   07 18 04.31, +22 54 28.4,
+ 2024-Oct-08 00:00, , ,   07 20 13.76, +22 51 57.1,
+ 2024-Oct-09 00:00, , ,   07 22 22.02, +22 49 22.5,
+ 2024-Oct-10 00:00, , ,   07 24 29.07, +22 46 45.0,
+ 2024-Oct-11 00:00, , ,   07 26 34.90, +22 44 04.7,
+ 2024-Oct-12 00:00, , ,   07 28 39.49, +22 41 21.9,
+ 2024-Oct-13 00:00, , ,   07 30 42.82, +22 38 36.9,
+ 2024-Oct-14 00:00, , ,   07 32 44.86, +22 35 49.8,
+ 2024-Oct-15 00:00, , ,   07 34 45.62, +22 33 00.9,
+ 2024-Oct-16 00:00, , ,   07 36 45.05, +22 30 10.4,
+ 2024-Oct-17 00:00, , ,   07 38 43.16, +22 27 18.5,
+ 2024-Oct-18 00:00, , ,   07 40 39.92, +22 24 25.6,
+ 2024-Oct-19 00:00, , ,   07 42 35.31, +22 21 31.8,
+ 2024-Oct-20 00:00, , ,   07 44 29.30, +22 18 37.4,
+ 2024-Oct-21 00:00, , ,   07 46 21.87, +22 15 42.8,
+ 2024-Oct-22 00:00, , ,   07 48 12.98, +22 12 48.3,
+ 2024-Oct-23 00:00, , ,   07 50 02.60, +22 09 54.0,
+ 2024-Oct-24 00:00, , ,   07 51 50.70, +22 07 00.4,
+ 2024-Oct-25 00:00, , ,   07 53 37.24, +22 04 07.8,
+ 2024-Oct-26 00:00, , ,   07 55 22.19, +22 01 16.3,
+ 2024-Oct-27 00:00, , ,   07 57 05.53, +21 58 26.4,
+ 2024-Oct-28 00:00, , ,   07 58 47.21, +21 55 38.3,
+ 2024-Oct-29 00:00, , ,   08 00 27.22, +21 52 52.3,
+ 2024-Oct-30 00:00, , ,   08 02 05.51, +21 50 08.8,
+ 2024-Oct-31 00:00, , ,   08 03 42.06, +21 47 28.1,
+ 2024-Nov-01 00:00, , ,   08 05 16.83, +21 44 50.4,
+ 2024-Nov-02 00:00, , ,   08 06 49.80, +21 42 16.1,
+ 2024-Nov-03 00:00, , ,   08 08 20.93, +21 39 45.5,
+ 2024-Nov-04 00:00, , ,   08 09 50.18, +21 37 19.0,
+ 2024-Nov-05 00:00, , ,   08 11 17.53, +21 34 56.8,
+ 2024-Nov-06 00:00, , ,   08 12 42.94, +21 32 39.3,
+ 2024-Nov-07 00:00, , ,   08 14 06.38, +21 30 26.8,
+ 2024-Nov-08 00:00, , ,   08 15 27.81, +21 28 19.7,
+ 2024-Nov-09 00:00, , ,   08 16 47.21, +21 26 18.1,
+ 2024-Nov-10 00:00, , ,   08 18 04.52, +21 24 22.4,
+ 2024-Nov-11 00:00, , ,   08 19 19.73, +21 22 32.9,
+ 2024-Nov-12 00:00, , ,   08 20 32.80, +21 20 49.9,
+ 2024-Nov-13 00:00, , ,   08 21 43.70, +21 19 13.7,
+ 2024-Nov-14 00:00, , ,   08 22 52.38, +21 17 44.4,
+ 2024-Nov-15 00:00, , ,   08 23 58.82, +21 16 22.6,
+ 2024-Nov-16 00:00, , ,   08 25 02.97, +21 15 08.4,
+ 2024-Nov-17 00:00, , ,   08 26 04.79, +21 14 02.2,
+ 2024-Nov-18 00:00, , ,   08 27 04.23, +21 13 04.4,
+ 2024-Nov-19 00:00, , ,   08 28 01.23, +21 12 15.2,
+ 2024-Nov-20 00:00, , ,   08 28 55.74, +21 11 35.0,
+ 2024-Nov-21 00:00, , ,   08 29 47.71, +21 11 04.2,
+ 2024-Nov-22 00:00, , ,   08 30 37.09, +21 10 43.0,
+ 2024-Nov-23 00:00, , ,   08 31 23.82, +21 10 31.8,
+ 2024-Nov-24 00:00, , ,   08 32 07.86, +21 10 30.8,
+ 2024-Nov-25 00:00, , ,   08 32 49.14, +21 10 40.3,
+ 2024-Nov-26 00:00, , ,   08 33 27.63, +21 11 00.7,
+ 2024-Nov-27 00:00, , ,   08 34 03.26, +21 11 32.2,
+ 2024-Nov-28 00:00, , ,   08 34 35.99, +21 12 15.0,
+ 2024-Nov-29 00:00, , ,   08 35 05.78, +21 13 09.4,
+ 2024-Nov-30 00:00, , ,   08 35 32.57, +21 14 15.6,
+ 2024-Dec-01 00:00, , ,   08 35 56.31, +21 15 33.9,
+ 2024-Dec-02 00:00, , ,   08 36 16.97, +21 17 04.3,
+ 2024-Dec-03 00:00, , ,   08 36 34.49, +21 18 47.2,
+ 2024-Dec-04 00:00, , ,   08 36 48.83, +21 20 42.6,
+ 2024-Dec-05 00:00, , ,   08 36 59.96, +21 22 50.6,
+ 2024-Dec-06 00:00, , ,   08 37 07.83, +21 25 11.4,
+ 2024-Dec-07 00:00, , ,   08 37 12.40, +21 27 44.9,
+ 2024-Dec-08 00:00, , ,   08 37 13.66, +21 30 31.2,
+ 2024-Dec-09 00:00, , ,   08 37 11.55, +21 33 30.2,
+ 2024-Dec-10 00:00, , ,   08 37 06.07, +21 36 42.0,
+ 2024-Dec-11 00:00, , ,   08 36 57.18, +21 40 06.3,
+ 2024-Dec-12 00:00, , ,   08 36 44.87, +21 43 43.2,
+ 2024-Dec-13 00:00, , ,   08 36 29.10, +21 47 32.5,
+ 2024-Dec-14 00:00, , ,   08 36 09.87, +21 51 34.1,
+ 2024-Dec-15 00:00, , ,   08 35 47.14, +21 55 47.8,
+ 2024-Dec-16 00:00, , ,   08 35 20.89, +22 00 13.5,
+ 2024-Dec-17 00:00, , ,   08 34 51.12, +22 04 50.9,
+ 2024-Dec-18 00:00, , ,   08 34 17.80, +22 09 39.7,
+ 2024-Dec-19 00:00, , ,   08 33 40.92, +22 14 39.7,
+ 2024-Dec-20 00:00, , ,   08 33 00.50, +22 19 50.5,
+ 2024-Dec-21 00:00, , ,   08 32 16.54, +22 25 11.6,
+ 2024-Dec-22 00:00, , ,   08 31 29.04, +22 30 42.6,
+ 2024-Dec-23 00:00, , ,   08 30 38.05, +22 36 23.0,
+ 2024-Dec-24 00:00, , ,   08 29 43.58, +22 42 12.3,
+ 2024-Dec-25 00:00, , ,   08 28 45.70, +22 48 09.7,
+ 2024-Dec-26 00:00, , ,   08 27 44.43, +22 54 14.8,
+ 2024-Dec-27 00:00, , ,   08 26 39.86, +23 00 26.8,
+ 2024-Dec-28 00:00, , ,   08 25 32.04, +23 06 44.9,
+ 2024-Dec-29 00:00, , ,   08 24 21.07, +23 13 08.4,
+ 2024-Dec-30 00:00, , ,   08 23 07.03, +23 19 36.4,
+ 2024-Dec-31 00:00, , ,   08 21 50.03, +23 26 08.2,
+ 2025-Jan-01 00:00, , ,   08 20 30.18, +23 32 42.8,
+ 2025-Jan-02 00:00, , ,   08 19 07.61, +23 39 19.3,
+ 2025-Jan-03 00:00, , ,   08 17 42.45, +23 45 56.8,
+ 2025-Jan-04 00:00, , ,   08 16 14.85, +23 52 34.2,
+ 2025-Jan-05 00:00, , ,   08 14 44.97, +23 59 10.6,
+ 2025-Jan-06 00:00, , ,   08 13 12.97, +24 05 45.0,
+ 2025-Jan-07 00:00, , ,   08 11 39.04, +24 12 16.5,
+ 2025-Jan-08 00:00, , ,   08 10 03.33, +24 18 44.2,
+ 2025-Jan-09 00:00, , ,   08 08 26.05, +24 25 07.0,
+ 2025-Jan-10 00:00, , ,   08 06 47.37, +24 31 24.1,
+ 2025-Jan-11 00:00, , ,   08 05 07.48, +24 37 34.8,
+ 2025-Jan-12 00:00, , ,   08 03 26.58, +24 43 38.2,
+ 2025-Jan-13 00:00, , ,   08 01 44.85, +24 49 33.5,
+ 2025-Jan-14 00:00, , ,   08 00 02.50, +24 55 20.1,
+ 2025-Jan-15 00:00, , ,   07 58 19.72, +25 00 57.1,
+ 2025-Jan-16 00:00, , ,   07 56 36.72, +25 06 24.1,
+ 2025-Jan-17 00:00, , ,   07 54 53.69, +25 11 40.4,
+ 2025-Jan-18 00:00, , ,   07 53 10.84, +25 16 45.4,
+ 2025-Jan-19 00:00, , ,   07 51 28.39, +25 21 38.6,
+ 2025-Jan-20 00:00, , ,   07 49 46.53, +25 26 19.7,
+ 2025-Jan-21 00:00, , ,   07 48 05.49, +25 30 48.1,
+ 2025-Jan-22 00:00, , ,   07 46 25.45, +25 35 03.6,
+ 2025-Jan-23 00:00, , ,   07 44 46.63, +25 39 06.0,
+ 2025-Jan-24 00:00, , ,   07 43 09.21, +25 42 54.9,
+ 2025-Jan-25 00:00, , ,   07 41 33.39, +25 46 30.2,
+ 2025-Jan-26 00:00, , ,   07 39 59.35, +25 49 51.9,
+ 2025-Jan-27 00:00, , ,   07 38 27.27, +25 52 59.9,
+ 2025-Jan-28 00:00, , ,   07 36 57.33, +25 55 54.1,
+ 2025-Jan-29 00:00, , ,   07 35 29.68, +25 58 34.6,
+ 2025-Jan-30 00:00, , ,   07 34 04.47, +26 01 01.5,
+ 2025-Jan-31 00:00, , ,   07 32 41.87, +26 03 14.9,
+ 2025-Feb-01 00:00, , ,   07 31 21.99, +26 05 14.9,
+ 2025-Feb-02 00:00, , ,   07 30 04.98, +26 07 01.8,
+ 2025-Feb-03 00:00, , ,   07 28 50.94, +26 08 35.6,
+ 2025-Feb-04 00:00, , ,   07 27 39.97, +26 09 56.8,
+ 2025-Feb-05 00:00, , ,   07 26 32.17, +26 11 05.6,
+ 2025-Feb-06 00:00, , ,   07 25 27.60, +26 12 02.3,
+ 2025-Feb-07 00:00, , ,   07 24 26.34, +26 12 47.3,
+ 2025-Feb-08 00:00, , ,   07 23 28.44, +26 13 20.9,
+ 2025-Feb-09 00:00, , ,   07 22 33.93, +26 13 43.6,
+ 2025-Feb-10 00:00, , ,   07 21 42.84, +26 13 55.6,
+ 2025-Feb-11 00:00, , ,   07 20 55.21, +26 13 57.4,
+ 2025-Feb-12 00:00, , ,   07 20 11.04, +26 13 49.2,
+ 2025-Feb-13 00:00, , ,   07 19 30.36, +26 13 31.6,
+ 2025-Feb-14 00:00, , ,   07 18 53.16, +26 13 04.6,
+ 2025-Feb-15 00:00, , ,   07 18 19.44, +26 12 28.8,
+ 2025-Feb-16 00:00, , ,   07 17 49.21, +26 11 44.4,
+ 2025-Feb-17 00:00, , ,   07 17 22.46, +26 10 51.7,
+ 2025-Feb-18 00:00, , ,   07 16 59.18, +26 09 51.1,
+ 2025-Feb-19 00:00, , ,   07 16 39.35, +26 08 42.7,
+ 2025-Feb-20 00:00, , ,   07 16 22.94, +26 07 26.9,
+ 2025-Feb-21 00:00, , ,   07 16 09.95, +26 06 04.0,
+ 2025-Feb-22 00:00, , ,   07 16 00.33, +26 04 34.2,
+ 2025-Feb-23 00:00, , ,   07 15 54.06, +26 02 57.6,
+ 2025-Feb-24 00:00, , ,   07 15 51.11, +26 01 14.6,
+ 2025-Feb-25 00:00, , ,   07 15 51.44, +25 59 25.2,
+ 2025-Feb-26 00:00, , ,   07 15 55.00, +25 57 29.8,
+ 2025-Feb-27 00:00, , ,   07 16 01.77, +25 55 28.3,
+ 2025-Feb-28 00:00, , ,   07 16 11.69, +25 53 21.0,
+ 2025-Mar-01 00:00, , ,   07 16 24.73, +25 51 07.9,
+$$EOE
+*******************************************************************************
+Column meaning:
+ 
+TIME
+
+  Times PRIOR to 1962 are UT1, a mean-solar time closely related to the
+prior but now-deprecated GMT. Times AFTER 1962 are in UTC, the current
+civil or "wall-clock" time-scale. UTC is kept within 0.9 seconds of UT1
+using integer leap-seconds for 1972 and later years.
+
+  Conversion from the internal Barycentric Dynamical Time (TDB) of solar
+system dynamics to the non-uniform civil UT time-scale requested for output
+has not been determined for UTC times after the next July or January 1st.
+Therefore, the last known leap-second is used as a constant over future
+intervals.
+
+  Time tags refer to the UT time-scale conversion from TDB on Earth
+regardless of observer location within the solar system, although clock
+rates may differ due to the local gravity field and no analog to "UT"
+may be defined for that location.
+
+  Any 'b' symbol in the 1st-column denotes a B.C. date. First-column blank
+(" ") denotes an A.D. date.
+ 
+CALENDAR SYSTEM
+
+  Mixed calendar mode was active such that calendar dates after AD 1582-Oct-15
+(if any) are in the modern Gregorian system. Dates prior to 1582-Oct-5 (if any)
+are in the Julian calendar system, which is automatically extended for dates
+prior to its adoption on 45-Jan-1 BC.  The Julian calendar is useful for
+matching historical dates. The Gregorian calendar more accurately corresponds
+to the Earth's orbital motion and seasons. A "Gregorian-only" calendar mode is
+available if such physical events are the primary interest.
+
+  NOTE: "n.a." in output means quantity "not available" at the print-time.
+ 
+ 'R.A.__(a-app), DEC_(a-app),' =
+  Airless apparent right ascension and declination of the target center
+with respect to an instantaneous reference frame defined by the Earth equator
+of-date (z-axis) and meridian containing the Earth equinox of-date (x-axis,
+EOP-corrected IAU76/80). Compensated for down-leg light-time delay,
+gravitational deflection of light, stellar aberration, precession & nutation.
+Note: equinox (RA origin) is offset -53 mas from the of-date frame defined
+by the IAU06/00a P & N system.
+
+  Units: RA  in hours-minutes-seconds of time,   HH MM SS.ff{ffff}
+         DEC in degrees-minutes-seconds of arc, sDD MN SC.f{ffff}
+
+Computations by ...
+
+    Solar System Dynamics Group, Horizons On-Line Ephemeris System
+    4800 Oak Grove Drive, Jet Propulsion Laboratory
+    Pasadena, CA  91109   USA
+
+    General site: https://ssd.jpl.nasa.gov/
+    Mailing list: https://ssd.jpl.nasa.gov/email_list.html
+    System news : https://ssd.jpl.nasa.gov/horizons/news.html
+    User Guide  : https://ssd.jpl.nasa.gov/horizons/manual.html
+    Connect     : browser        https://ssd.jpl.nasa.gov/horizons/app.html#/x
+                  API            https://ssd-api.jpl.nasa.gov/doc/horizons.html
+                  command-line   telnet ssd.jpl.nasa.gov 6775
+                  e-mail/batch   https://ssd.jpl.nasa.gov/ftp/ssd/horizons_batch.txt
+                  scripts        https://ssd.jpl.nasa.gov/ftp/ssd/SCRIPTS
+    Inquiries   : Jon.D.Giorgini@jpl.nasa.gov
+
+*******************************************************************************
