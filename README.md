@@ -61,3 +61,7 @@ Explore the interactive Mars retrograde motion visualization here:
 - `docs/`: Contains the `index.html` file used to publish the interactive explorer through GitHub Pages.
 
 **Note:** The HTML files contain the source code of the interactive visualisation. To view and interact with the visualisation, open the [online demo](https://you-xiu-launa.github.io/mars-retrograde-motion/).
+
+## Credits and Acknowledgements
+
+This project was developed by me, including the data visualisation and interactive explorer. The astronomical data was obtained from NASA JPL Horizons. Any external resources or tools used are acknowledged where applicable.
