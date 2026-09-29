@@ -81,7 +81,7 @@ def dec_to_degrees(dec):
     if sign == "-":
         value = -value
 
-    return value
+    return -value if sign == "-" else value
 
 
 def parse_date(date):
@@ -99,239 +99,287 @@ def main():
         raise ValueError("No observations were found in the data file.")
 
     dates = [parse_date(row[0]) for row in table]
-    ra_values = [ra_to_degrees(row[1]) for row in table]
-    dec_values = [dec_to_degrees(row[2]) for row in table]
+    ra = [ra_to_degrees(row[1]) for row in table]
+    dec = [dec_to_degrees(row[2]) for row in table]
 
     count = len(table)
-    progress = [i / (count - 1) for i in range(count)]
+    start_date = dates[0]
+    elapsed_days = [(d - start_date).days for d in dates]
+    progress = [i / max(count - 1, 1) for i in range(count)]
 
     print(f"{DATA.name}: {count} observations")
     print(f"First observation: {table[0][0]}")
     print(f"Last observation:  {table[-1][0]}")
-    print(f"RA range: {min(ra_values):.2f}° to {max(ra_values):.2f}°")
-    print(f"Dec range: {min(dec_values):.2f}° to {max(dec_values):.2f}°")
 
-    # Deep-space colour palette
+    # The third axis represents elapsed time, not physical distance.
+    time_axis = elapsed_days
+
     background = "#050812"
-    foreground = "#dce8ff"
-    muted = "#71809c"
+    foreground = "#e5edff"
+    muted = "#7d8eae"
+    cyan = "#35d9ff"
+    orange = "#ffad70"
 
-    fig, ax = plt.subplots(figsize=(12, 9), facecolor=background)
+    fig = plt.figure(figsize=(13, 10), facecolor=background)
+    ax = fig.add_subplot(111, projection="3d")
     ax.set_facecolor(background)
 
-    # Set the viewing area with a little breathing room
-    x_min, x_max = min(ra_values), max(ra_values)
-    y_min, y_max = min(dec_values), max(dec_values)
+    # Coordinate ranges
+    x_min, x_max = min(ra), max(ra)
+    y_min, y_max = min(dec), max(dec)
+    z_min, z_max = min(time_axis), max(time_axis)
 
-    x_pad = (x_max - x_min) * 0.12
-    y_pad = (y_max - y_min) * 0.16
+    x_pad = max((x_max - x_min) * 0.16, 0.2)
+    y_pad = max((y_max - y_min) * 0.20, 0.2)
+    z_pad = max((z_max - z_min) * 0.06, 2)
 
-    ax.set_xlim(x_max + x_pad, x_min - x_pad)
-    ax.set_ylim(y_min - y_pad, y_max + y_pad)
+    # ----------------------------
+    # Atmospheric particle field
+    # ----------------------------
 
-    # Background stars, placed reproducibly
     rng = random.Random(12)
-    star_x = [rng.uniform(x_min - x_pad, x_max + x_pad) for _ in range(240)]
-    star_y = [rng.uniform(y_min - y_pad, y_max + y_pad) for _ in range(240)]
-    star_sizes = [rng.choice([1, 2, 3, 4]) for _ in range(240)]
+    star_count = 900
+
+    star_x = [
+        rng.uniform(x_min - x_pad, x_max + x_pad)
+        for _ in range(star_count)
+    ]
+    star_y = [
+        rng.uniform(y_min - y_pad, y_max + y_pad)
+        for _ in range(star_count)
+    ]
+    star_z = [
+        rng.uniform(z_min - z_pad, z_max + z_pad)
+        for _ in range(star_count)
+    ]
+
+    star_sizes = [
+        rng.choices([0.5, 1, 2, 3], weights=[5, 5, 2, 1])[0]
+        for _ in range(star_count)
+    ]
 
     ax.scatter(
-        star_x,
-        star_y,
+        star_x, star_y, star_z,
         s=star_sizes,
-        color="#9db7e8",
-        alpha=0.24,
+        c="#91b7f5",
+        alpha=0.22,
         linewidths=0,
+        depthshade=False,
         zorder=1,
     )
 
-    # A subtle line connects the real observations in time order
+    # A soft, wide glow along the observed path
     ax.plot(
-        ra_values,
-        dec_values,
-        color="#8ba4d8",
-        linewidth=1.0,
-        alpha=0.42,
+        ra, dec, time_axis,
+        color="#168cff",
+        linewidth=8,
+        alpha=0.045,
         zorder=2,
     )
 
-    # Soft glow behind the observed positions
-    ax.scatter(
-        ra_values,
-        dec_values,
-        s=100,
-        color="#168cff",
-        alpha=0.035,
-        linewidths=0,
+    ax.plot(
+        ra, dec, time_axis,
+        color=cyan,
+        linewidth=2.0,
+        alpha=0.30,
         zorder=3,
     )
 
-    ax.scatter(
-        ra_values,
-        dec_values,
-        s=42,
-        color="#24cfff",
-        alpha=0.07,
-        linewidths=0,
-        zorder=3,
-    )
-
-    # Main particles: colour represents time
+    # Main observations: colour encodes time
     points = ax.scatter(
-        ra_values,
-        dec_values,
+        ra, dec, time_axis,
         c=progress,
         cmap="turbo",
         norm=Normalize(0, 1),
-        s=[12 + 15 * p for p in progress],
+        s=[12 + 20 * p for p in progress],
         alpha=0.96,
         edgecolors="none",
+        depthshade=False,
         zorder=4,
     )
 
-    # Highlight the first and last observed positions
+    # Decorative particles around the real path.
+    # These are generated for visual atmosphere, not observations.
+    particle_count = 1500
+
+    particle_x = []
+    particle_y = []
+    particle_z = []
+    particle_size = []
+    particle_alpha = []
+
+    for _ in range(particle_count):
+        i = rng.randrange(count)
+
+        spread = rng.uniform(0.025, 0.30)
+        particle_x.append(ra[i] + rng.gauss(0, spread))
+        particle_y.append(dec[i] + rng.gauss(0, spread))
+        particle_z.append(
+            time_axis[i] + rng.gauss(0, 5.0)
+        )
+        particle_size.append(rng.uniform(0.4, 5.0))
+        particle_alpha.append(rng.uniform(0.04, 0.35))
+
+    # Matplotlib applies one alpha value to the collection.
+    # Varying sizes and colours create the layered particle field.
     ax.scatter(
-        ra_values[0],
-        dec_values[0],
-        s=105,
-        facecolors="none",
-        edgecolors="#f4f7ff",
-        linewidths=1.3,
-        zorder=5,
+        particle_x, particle_y, particle_z,
+        c=particle_z,
+        cmap="winter",
+        s=particle_size,
+        alpha=0.20,
+        linewidths=0,
+        depthshade=False,
+        zorder=2,
     )
 
+    # Start and end markers
     ax.scatter(
-        ra_values[-1],
-        dec_values[-1],
-        s=145,
+        [ra[0]], [dec[0]], [time_axis[0]],
+        s=150,
         facecolors="none",
-        edgecolors="#ffb36b",
+        edgecolors="#f0f5ff",
         linewidths=1.5,
-        zorder=5,
+        depthshade=False,
+        zorder=6,
     )
 
-    ax.annotate(
-        "START  ·  " + dates[0].strftime("%d %b %Y"),
-        (ra_values[0], dec_values[0]),
-        xytext=(10, 12),
-        textcoords="offset points",
-        color="#e8f0ff",
+    ax.scatter(
+        [ra[-1]], [dec[-1]], [time_axis[-1]],
+        s=190,
+        facecolors="none",
+        edgecolors=orange,
+        linewidths=1.8,
+        depthshade=False,
+        zorder=6,
+    )
+
+    ax.text(
+        ra[0], dec[0], time_axis[0],
+        "  START",
+        color=foreground,
         fontsize=9,
-        fontweight="medium",
     )
 
-    ax.annotate(
-        "END  ·  " + dates[-1].strftime("%d %b %Y"),
-        (ra_values[-1], dec_values[-1]),
-        xytext=(10, -20),
-        textcoords="offset points",
-        color="#ffbd83",
+    ax.text(
+        ra[-1], dec[-1], time_axis[-1],
+        "  END",
+        color=orange,
         fontsize=9,
-        fontweight="medium",
     )
 
-    # Title and explanatory text
+    # ----------------------------
+    # Titles and labels
+    # ----------------------------
+
     fig.text(
-        0.08,
-        0.92,
+        0.075, 0.94,
         "MARS",
-        color="#f2f5ff",
-        fontsize=27,
+        color=foreground,
+        fontsize=28,
         fontweight="bold",
-        ha="left",
     )
 
     fig.text(
-        0.082,
-        0.885,
-        "THE APPARENT RETROGRADE MOTION",
+        0.078, 0.905,
+        "A PASSAGE THROUGH TIME  /  APPARENT RETROGRADE MOTION",
         color="#91a8d2",
         fontsize=10,
-        ha="left",
-        tracking=2,
     )
 
     fig.text(
-        0.92,
-        0.92,
+        0.925, 0.94,
         f"{dates[0]:%b %Y} — {dates[-1]:%b %Y}",
-        color="#dce8ff",
+        color=foreground,
         fontsize=10,
         ha="right",
     )
 
-    # Scientific coordinate axes
     ax.set_xlabel(
         "RIGHT ASCENSION  /  degrees",
         color=muted,
-        labelpad=14,
-        fontsize=9,
+        labelpad=12,
     )
     ax.set_ylabel(
         "DECLINATION  /  degrees",
         color=muted,
-        labelpad=14,
-        fontsize=9,
+        labelpad=12,
+    )
+    ax.set_zlabel(
+        "ELAPSED TIME  /  days",
+        color=muted,
+        labelpad=10,
     )
 
-    ax.tick_params(colors=muted, labelsize=9, length=0, pad=8)
+    ax.set_xlim(x_max + x_pad, x_min - x_pad)
+    ax.set_ylim(y_min - y_pad, y_max + y_pad)
+    ax.set_zlim(z_min - z_pad, z_max + z_pad)
 
-    ax.grid(
-        color="#71809c",
-        alpha=0.16,
-        linewidth=0.65,
+    ax.tick_params(
+        colors=muted,
+        labelsize=8,
+        pad=2,
     )
 
-    for spine in ax.spines.values():
-        spine.set_color("#34415c")
-        spine.set_linewidth(0.7)
+    # Dark, translucent 3D panes and subtle grid
+    for axis in (ax.xaxis, ax.yaxis, ax.zaxis):
+        axis.pane.set_facecolor((0.025, 0.045, 0.09, 0.85))
+        axis.pane.set_edgecolor("#263653")
+        axis._axinfo["grid"]["color"] = (0.35, 0.45, 0.65, 0.18)
+        axis._axinfo["grid"]["linewidth"] = 0.6
 
-    # Colour key for the passage of time
+    # A cinematic viewing angle
+    ax.view_init(elev=25, azim=-58)
+    ax.set_box_aspect((1.25, 1.0, 1.15))
+
+    # Time colour key
     colorbar = fig.colorbar(
         points,
         ax=ax,
         orientation="horizontal",
-        pad=0.13,
-        fraction=0.045,
-        aspect=35,
+        pad=0.08,
+        fraction=0.035,
+        aspect=40,
     )
 
     colorbar.set_ticks([0, 1])
-    colorbar.set_ticklabels(
-        [dates[0].strftime("%b %Y"), dates[-1].strftime("%b %Y")]
+    colorbar.set_ticklabels([
+        dates[0].strftime("%b %Y"),
+        dates[-1].strftime("%b %Y"),
+    ])
+    colorbar.ax.tick_params(
+        colors=muted,
+        labelsize=8,
+        length=0,
     )
-    colorbar.ax.tick_params(colors=muted, labelsize=8, length=0)
     colorbar.outline.set_visible(False)
     colorbar.set_label(
-        "TIME  →",
+        "OBSERVATION TIME  →",
         color=muted,
         fontsize=8,
-        labelpad=7,
+        labelpad=6,
     )
 
-    # Small footer
     fig.text(
-        0.08,
-        0.035,
+        0.075, 0.035,
         "182 DAILY OBSERVATIONS  ·  GEOCENTRIC SKY POSITIONS",
-        color="#53617c",
+        color="#64728e",
         fontsize=8,
     )
 
     fig.text(
-        0.92,
-        0.035,
-        "DATA: NASA/JPL HORIZONS",
-        color="#53617c",
+        0.925, 0.035,
+        "DATA: NASA/JPL HORIZONS  ·  Z = ELAPSED TIME",
+        color="#64728e",
         fontsize=8,
         ha="right",
     )
 
     fig.subplots_adjust(
-        left=0.12,
+        left=0.04,
         right=0.94,
-        top=0.82,
-        bottom=0.19,
+        top=0.86,
+        bottom=0.15,
     )
 
     OUT.mkdir(exist_ok=True)
@@ -341,6 +389,7 @@ def main():
         output_path,
         dpi=240,
         facecolor=fig.get_facecolor(),
+        bbox_inches="tight",
     )
 
     print(f"Saved {output_path.relative_to(HERE)}")
