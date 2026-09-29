@@ -53,3 +53,11 @@ The generated files are saved in the `out/` folder.
 Explore the interactive Mars retrograde motion visualization here:
 
 [**Mars in Retrograde | Data Explorer**](https://you-xiu-launa.github.io/mars-retrograde-motion/)
+
+## Project Structure
+
+- `data/`: Contains the Mars position data obtained from NASA JPL Horizons.
+- `out/`: Contains the generated visualisation outputs, including the static plots, animation, and interactive HTML file.
+- `docs/`: Contains the `index.html` file used to publish the interactive explorer through GitHub Pages.
+
+**Note:** The HTML files contain the source code of the interactive visualisation. To view and interact with the visualisation, open the [online demo](https://you-xiu-launa.github.io/mars-retrograde-motion/).
