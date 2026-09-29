@@ -32,3 +32,12 @@ Generate the static image:
 
 ```bash
 uv run plot.py
+```
+
+Generate the animation:
+
+```bash
+uv run animate.py
+```
+
+The generated files are saved in the `out/` folder.
