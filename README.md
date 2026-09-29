@@ -40,4 +40,16 @@ Generate the animation:
 uv run animate.py
 ```
 
+Generate the interactive 3D explorer:
+
+```bash
+uv run interactive.py
+```
+
 The generated files are saved in the `out/` folder.
+
+## Interactive Demo
+
+Explore the interactive Mars retrograde motion visualization here:
+
+[**Mars in Retrograde | Data Explorer**](https://you-xiu-launa.github.io/mars-retrograde-motion/)
