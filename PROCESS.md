@@ -8,12 +8,12 @@ This iterative process was an important part of the project. It helped me develo
 
 ## Tools
 
-- **Python:** Used to process astronomical data and create the visualisations.
-- **uv:** Used to run the Python scripts and manage the project environment.
-- **Visual Studio Code:** Used to edit and work on the project files.
-- **GitHub:** Used to store the project files and track changes.
-- **GitHub Pages:** Used to publish the interactive visualisation online.
-- **ChatGPT:** Used as an AI assistant to help understand code, troubleshoot problems, and improve the project documentation. I reviewed the suggestions and checked them against my project before applying them.
+- Python:** Used to process astronomical data and create the visualisations.
+- uv:** Used to run the Python scripts and manage the project environment.
+- Visual Studio Code:** Used to edit and work on the project files.
+- GitHub:** Used to store the project files and track changes.
+- GitHub Pages:** Used to publish the interactive visualisation online.
+- ChatGPT:** Used as an AI assistant to help understand code, troubleshoot problems, and improve the project documentation. I reviewed the suggestions and checked them against my project before applying them.
 
 ## Kept
 
