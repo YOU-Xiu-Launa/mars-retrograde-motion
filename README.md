@@ -64,4 +64,4 @@ Explore the interactive Mars retrograde motion visualization here:
 
 ## Credits and Acknowledgements
 
-This project was developed by me, including the data visualisation and interactive explorer. The astronomical data was obtained from NASA JPL Horizons. Any external resources or tools used are acknowledged where applicable.
+This project was developed by me, including the data visualisation and interactive explorer. The astronomical data was obtained from NASA JPL Horizons. Any external resources or tools used are acknowledged in PROCESS.md.
