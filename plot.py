@@ -200,37 +200,89 @@ def main():
 
     # Decorative particles around the real path.
     # These are generated for visual atmosphere, not observations.
-    particle_count = 1500
+    # ----------------------------
+    # Generative particle field
+    # Decorative particles only:
+    # the real observations remain unchanged.
+    # ----------------------------
+
+    particle_count = 3200
 
     particle_x = []
     particle_y = []
     particle_z = []
     particle_size = []
-    particle_alpha = []
 
     for _ in range(particle_count):
         i = rng.randrange(count)
 
-        spread = rng.uniform(0.025, 0.30)
-        particle_x.append(ra[i] + rng.gauss(0, spread))
-        particle_y.append(dec[i] + rng.gauss(0, spread))
-        particle_z.append(
-            time_axis[i] + rng.gauss(0, 5.0)
-        )
-        particle_size.append(rng.uniform(0.4, 5.0))
-        particle_alpha.append(rng.uniform(0.04, 0.35))
+        # Wider spread creates a visible cloud around the path
+        spread = rng.uniform(0.08, 0.65)
 
-    # Matplotlib applies one alpha value to the collection.
-    # Varying sizes and colours create the layered particle field.
+        particle_x.append(
+            ra[i] + rng.gauss(0, spread)
+        )
+        particle_y.append(
+            dec[i] + rng.gauss(0, spread)
+        )
+        particle_z.append(
+            time_axis[i] + rng.gauss(0, 12)
+        )
+
+        particle_size.append(
+            rng.uniform(1.0, 9.0)
+        )
+
+    # A cool-coloured cloud surrounding the trajectory
     ax.scatter(
-        particle_x, particle_y, particle_z,
+        particle_x,
+        particle_y,
+        particle_z,
         c=particle_z,
         cmap="winter",
         s=particle_size,
-        alpha=0.20,
+        alpha=0.32,
         linewidths=0,
         depthshade=False,
         zorder=2,
+    )
+
+    # A second, finer layer creates a dust-like atmosphere
+    fine_count = 1800
+
+    fine_x = []
+    fine_y = []
+    fine_z = []
+    fine_size = []
+
+    for _ in range(fine_count):
+        i = rng.randrange(count)
+
+        spread = rng.uniform(0.04, 0.42)
+
+        fine_x.append(
+            ra[i] + rng.gauss(0, spread)
+        )
+        fine_y.append(
+            dec[i] + rng.gauss(0, spread)
+        )
+        fine_z.append(
+            time_axis[i] + rng.gauss(0, 7)
+        )
+        fine_size.append(
+            rng.uniform(0.5, 3.5)
+        )
+
+    ax.scatter(
+        fine_x,
+        fine_y,
+        fine_z,
+        c="#65cfff",
+        s=fine_size,
+        alpha=0.24,
+        linewidths=0,
+        depthshade=False,
+        zorder=3,
     )
 
     # Start and end markers
@@ -331,6 +383,39 @@ def main():
     # A cinematic viewing angle
     ax.view_init(elev=25, azim=-58)
     ax.set_box_aspect((1.25, 1.0, 1.15))
+        # Mouse-wheel zoom for the interactive Matplotlib window
+    def zoom_3d(event):
+        if event.inaxes != ax:
+            return
+
+        if event.button == "up":
+            scale = 0.82
+        elif event.button == "down":
+            scale = 1.22
+        else:
+            return
+
+        x_limits = ax.get_xlim3d()
+        y_limits = ax.get_ylim3d()
+        z_limits = ax.get_zlim3d()
+
+        def zoom_limits(limits, factor):
+            center = (limits[0] + limits[1]) / 2
+            half_range = (limits[1] - limits[0]) / 2
+            new_half_range = half_range * factor
+
+            return (
+                center - new_half_range,
+                center + new_half_range,
+            )
+
+        ax.set_xlim3d(zoom_limits(x_limits, scale))
+        ax.set_ylim3d(zoom_limits(y_limits, scale))
+        ax.set_zlim3d(zoom_limits(z_limits, scale))
+
+        fig.canvas.draw_idle()
+
+    fig.canvas.mpl_connect("scroll_event", zoom_3d)
 
     # Time colour key
     colorbar = fig.colorbar(
@@ -376,11 +461,14 @@ def main():
     )
 
     fig.subplots_adjust(
-        left=0.04,
-        right=0.94,
-        top=0.86,
-        bottom=0.15,
+        left=0.01,
+        right=0.99,
+        top=0.88,
+        bottom=0.14,
     )
+
+    # Give the 3D plot more room in the figure
+    ax.set_position([0.02, 0.13, 0.96, 0.74])
 
     OUT.mkdir(exist_ok=True)
     output_path = OUT / PICTURE
